@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "match": "node matched-routes.js"
+    "match": "node matched-routes.js",
+    "query": "node query-string.js"
   },
   "keywords": [],
   "author": "",
