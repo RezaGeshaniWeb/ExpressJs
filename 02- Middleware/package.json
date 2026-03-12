@@ -1,0 +1,12 @@
+{
+  "name": "02--middleware",
+  "version": "1.0.0",
+  "main": "body.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

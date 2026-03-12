@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node index.js",
     "match": "node matched-routes.js",
-    "query": "node query-string.js"
+    "query": "node query-string.js",
   },
   "keywords": [],
   "author": "",
