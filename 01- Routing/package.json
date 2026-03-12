@@ -6,6 +6,7 @@
     "start": "node index.js",
     "match": "node matched-routes.js",
     "query": "node query-string.js",
+    "http": "node HTTP-Methods.js"
   },
   "keywords": [],
   "author": "",
