@@ -7,6 +7,12 @@ const users = [
     { id: 3, name: 'user3' }
 ]
 
+const products = [
+    { id: 1, name: 'product1' },
+    { id: 2, name: 'product2' },
+    { id: 3, name: 'product3' }
+]
+
 app.get('/', (req, res) => {
     // res.send('Hello ExpressJs')
     // res.send('<h1>Hello ExpressJs</h1>')
@@ -37,6 +43,27 @@ app.get('/users/:id', (req, res) => {
             }
         })
     }
+})
+
+app.get('/products/:id', (req, res) => {
+    const { id } = req.params
+    let product = null
+    if (id) {
+        product = products.find(p => p.id == id)
+        return res.status(200).json({
+            statusCode: res.statusCode,
+            data: {
+                product
+            }
+        })
+    }
+    res.json({
+        products
+    })
+})
+
+app.get('/cars/:id/:model/:carID', (req, res) => {
+    res.send(req.params)
 })
 
 res.listen(3000, () => console.log('server run on port 3000'))
