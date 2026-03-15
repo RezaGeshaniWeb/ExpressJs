@@ -7,6 +7,10 @@ const app = express()
 app.set("view engine", "pug")
 app.set("views", path.join(__dirname, "views"))
 
+app.get('/', (req, res, next) => {
+    res.render('index')
+})
+
 app.use(NotFoundError)
 app.use(ErrorHandler)
 
