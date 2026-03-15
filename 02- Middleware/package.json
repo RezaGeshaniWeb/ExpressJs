@@ -6,7 +6,8 @@
     "start": "node index.js",
     "middleware2": "node middleware2.js",
     "morgan": "node morgan.js",
-    "camelCase": "node camelCase.js"
+    "camelCase": "node camelCase.js",
+    "omitEmpty": "node omitEmpty.js"
   },
   "keywords": [],
   "author": "",
