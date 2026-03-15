@@ -10,7 +10,10 @@ app.set("view engine", "pug")
 app.set("views", path.join(__dirname, "views"))
 
 app.get('/', (req, res, next) => {
-    res.render('index')
+    res.render('index', {
+        link: 'http://localhost:3000',
+        section: 'my section of web page'
+    })
 })
 
 app.use(NotFoundError)
