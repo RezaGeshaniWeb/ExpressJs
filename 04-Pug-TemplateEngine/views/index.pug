@@ -8,11 +8,20 @@ html(lang="en")
     body 
         div 
             header 
+                include partials/_nav
                 h2.green Pug Template Engine
             section 
                 h2.red #{section}
+                table(border='1')
+                each user in users
+                    tr
+                        td #{user.id}
+                        td #{user.name}
                 p Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, nulla.
-                p Lorem ipsum dolor sit amet consectetur.
+                each num in [1, 2, 3, 4, 5, 6]
+                    li = num 
+                each value,key in {a: 1, b: 2}
+                    li #{key} : #{value}
             footer 
                 h3.blue footer section
                 p 

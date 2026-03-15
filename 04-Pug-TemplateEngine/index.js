@@ -10,9 +10,15 @@ app.set("view engine", "pug")
 app.set("views", path.join(__dirname, "views"))
 
 app.get('/', (req, res, next) => {
+    const users = [
+        { id: 1, name: 'reza' },
+        { id: 2, name: 'alireza' },
+        { id: 3, name: 'mohamadreza' }
+    ]
     res.render('index', {
         link: 'http://localhost:3000',
-        section: 'my section of web page'
+        section: 'my section of web page',
+        users
     })
 })
 
