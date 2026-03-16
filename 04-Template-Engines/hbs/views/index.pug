@@ -1,28 +1,328 @@
-doctype html
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        link(rel="stylesheet", href="/static/style.css")
-        title Pug Template Engine
-    body 
-        div 
-            header 
-                include partials/_nav
-                h2.green Pug Template Engine
-            section 
-                h2.red #{section}
-                table(border='1')
-                each user in users
-                    tr
-                        td #{user.id}
-                        td #{user.name}
-                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, nulla.
-                each num in [1, 2, 3, 4, 5, 6]
-                    li = num 
-                each value,key in {a: 1, b: 2}
-                    li #{key} : #{value}
-            footer 
-                h3.blue footer section
-                p 
-                    a(href=link, target="_blank") my link
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avada Mechanic</title>
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+  <!-- bootstrap icon -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <!-- favicon -->
+  <link rel="shortcut icon" href="assets/img/favicon.webp" type="image/x-icon" />
+  <!-- global css -->
+  <link rel="stylesheet" href="assets/css/global.css" />
+  <!-- master css -->
+  <link rel="stylesheet" href="assets/css/master.css" />
+</head>
+
+<body>
+  <main>
+    <section class="mechanic">
+      <header>
+        <div>
+          <div>
+            <a href="#">
+              <i class="bi bi-telephone"></i>
+              Call us : 1.800.123.4567
+            </a>
+            <a href="#">
+              <i class="bi bi-watch"></i>
+              Opening hours : Mon-Fri 8h-15h
+            </a>
+          </div>
+          <div>
+            <a href="#">
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a href="#">
+              <i class="bi bi-twitter-x"></i>
+            </a>
+            <a href="#">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="#">
+              <i class="bi bi-youtube"></i>
+            </a>
+          </div>
+        </div>
+        <div>
+          <figure>
+            <img src="assets/img/mechanic-logo-svg.svg" alt="" />
+          </figure>
+          <nav>
+            <ul>
+              <li>
+                <a href="#">About us</a>
+                <i class="bi bi-chevron-down"></i>
+                <ul>
+                  <li><a href="#">About us</a></li>
+                  <li><a href="#">F.A.Q</a></li>
+                  <li><a href="#">Our team</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">Our services</a>
+                <i class="bi bi-chevron-down"></i>
+                <ul>
+                  <li><a href="#">Mechanical engineering</a></li>
+                  <li><a href="#">General mechanic</a></li>
+                  <li><a href="#">Maintenance mechanic</a></li>
+                  <li><a href="#">Car mechanic</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </nav>
+          <button>Buy Avada</button>
+        </div>
+      </header>
+      <div>
+        <div>
+          <form autocomplete="off" spellcheck="false">
+            <input type="text" placeholder="Name ...*" />
+            <input type="email" placeholder="Email ...*" />
+            <button>Book appointment</button>
+          </form>
+        </div>
+        <div>
+          <p>Welcome to Avada Mechanic</p>
+          <h1>Highly skilled certified mechanics guaranteed.</h1>
+          <button>Need a car inspection?</button>
+          <div>
+            <figure>
+              <img src="assets/img/avatar-1.webp" alt="" />
+            </figure>
+            <div>
+              <p>Got a question about our services?</p>
+              <p>Call us : 1.800.123.4567</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="about-us">
+      <div>
+        <h2>We strive for excellence in everything we do.</h2>
+        <p>
+          Pharetra sit pellentesque pellentesque pharetra viverra tempus
+          quisque.
+        </p>
+        <button>Learn more about us</button>
+      </div>
+      <figure>
+        <img src="assets/img/box-1-800x500.webp" alt="" />
+        <figcaption>Professional enginner</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/img/box-2-800x500.webp" alt="" />
+        <figcaption>Best price available</figcaption>
+      </figure>
+    </section>
+    <section class="questions">
+      <div>
+        <div></div>
+        <div>
+          <h2>Frequently asked questions.</h2>
+          <p>
+            Malesuada velit et ut malesuada amet tempor velit dui. Nullam amet
+            commodo gravida gravida.
+          </p>
+          <div>
+            <i class="bi bi-plus-square-fill"></i>
+            <p>Curabitur non nulla sit amet nisl tempus?</p>
+          </div>
+          <div>
+            <i class="bi bi-plus-square-fill"></i>
+            <p>Curabitur non nulla sit amet nisl tempus?</p>
+          </div>
+          <div>
+            <i class="bi bi-plus-square-fill"></i>
+            <p>Curabitur non nulla sit amet nisl tempus?</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="numbers">
+      <div>
+        <div>
+          <span>25+</span>
+          <p>Years of experience</p>
+        </div>
+        <div>
+          <span>35</span>
+          <p>Amazing employees</p>
+        </div>
+        <div>
+          <span>10k+</span>
+          <p>Hours of maintenance</p>
+        </div>
+        <div>
+          <span>2k+</span>
+          <p>Projects done</p>
+        </div>
+      </div>
+    </section>
+    <section class="strive">
+      <div>
+        <div>
+          <i class="bi bi-wrench-adjustable-circle-fill"></i>
+          <h4>Engine performance</h4>
+          <p>Tempus tincidunt neque.</p>
+        </div>
+        <div>
+          <i class="bi bi-gear-wide-connected"></i>
+          <h4>Detailed diagnostic</h4>
+          <p>Tempus tincidunt neque.</p>
+        </div>
+        <div>
+          <i class="bi bi-key"></i>
+          <h4>Reasonable price</h4>
+          <p>Tempus tincidunt neque.</p>
+        </div>
+      </div>
+      <div>
+        <h2>We strive for excellence in everything we do.
+        </h2>
+        <p>Massa euismod laoreet faucibus cras non amet.
+        </p>
+        <div>
+          <button>Need a car inspection?</button>
+          <a href="#">
+            <i class="bi bi-caret-right-fill"></i>
+            Frequetly asked questions
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="members">
+      <h2>Team members</h2>
+      <div>
+        <figure>
+          <img src="assets/img/box-1-800x500.webp" alt="">
+          <h4>Cheryl Dobson</h4>
+          <figcaption>Automotive Technician</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/img/staff-11.webp" alt="">
+          <h4>Andrew McNiel
+          </h4>
+          <figcaption>Helicopter Mechanic
+          </figcaption>
+        </figure>
+        <figure>
+          <img src="assets/img/staff-7-400x333.jpg" alt="">
+          <h4>Kristopher Wagner
+          </h4>
+          <figcaption>Diesel Mechanic
+          </figcaption>
+        </figure>
+        <figure>
+          <img src="assets/img/staff-8.webp" alt="">
+          <h4>Jonas Case
+          </h4>
+          <figcaption>Maintenance Mechanic
+          </figcaption>
+        </figure>
+      </div>
+      <div>
+        <img src="assets/img/sponsor-1.svg" alt="">
+        <img src="assets/img/sponsor-2.svg" alt="">
+        <img src="assets/img/sponsor-3.svg" alt="">
+        <img src="assets/img/sponsor-4.svg" alt="">
+        <img src="assets/img/sponsor-5.svg" alt="">
+      </div>
+    </section>
+    <section class="services">
+      <div>
+        <h3>01</h3>
+        <h4>Diagnostic service</h4>
+        <p>Dodales magna nisi in id cursus enim Nulla porttitor accumsan tincidunt.</p>
+      </div>
+      <div>
+        <h3>02</h3>
+        <h4>Vehicle inspection</h4>
+        <p>Est at sodales magna nisi in id cursus enim viverra. Viverra.</p>
+      </div>
+      <div>
+        <h3>03</h3>
+        <h4>Performance upgrade</h4>
+        <p>Nulla porttitor accumsan tincidunt. Sed porttitor lectus nibh.</p>
+      </div>
+    </section>
+    <section class="login-form">
+      <div></div>
+      <div>
+        <figure>
+          <img src="assets/img/mechanic-logo-svg.svg" alt="">
+        </figure>
+        <p>Est at sodales magna nisi in id cursus enim viverra. Viverra adipiscing pretium erat facilisis ac tellus
+          proin.
+        </p>
+        <ul>
+          <li><a href="#">Our team</a></li>
+          <li><a href="#">F.A.Q</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <a href="#">
+          <i class="bi bi-watch"></i>
+          Opening hours : Mon-Fri 8h-15h
+        </a>
+      </div>
+      <div>
+        <form autocomplete="off" spellcheck="false">
+          <input type="text" name="username" placeholder="Your name ...*">
+          <input type="email" name="email" placeholder="Insert your email ...*">
+          <select name="model">
+            <option selected disabled>Car Model</option>
+            <option value="Ford">Ford</option>
+            <option value="Tesla">Tesla</option>
+            <option value="GM">GM</option>
+            <option value="Toyota">Toyota</option>
+          </select>
+          <button>Get an appointment</button>
+        </form>
+      </div>
+    </section>
+    <footer>
+      <div>
+        <p>
+          © 2024 • This is a demo from <strong>Avada.website/Mechanic</strong> • Coded by
+          <strong>rezageshani</strong>
+        </p>
+        <div>
+          <i class="bi bi-telephone-fill"></i>
+          <a href="tel:09934774358">09934774358</a>
+        </div>
+        <div>
+          <i class="bi bi-linkedin"></i>
+          <a href="https://www.linkedin.com/in/reza-geshani-web">reza-geshani-web</a>
+        </div>
+        <div>
+          <i class="bi bi-instagram"></i>
+          <a href="https://www.instagram.com/rezageshani_web">@rezageshani_web</a>
+        </div>
+        <div>
+          <i class="bi bi-github"></i>
+          <a href="https://github.com/RezaGeshaniWeb/">RezaGeshaniWeb</a>
+        </div>
+      </div>
+    </footer>
+    <div class="fixed-info">
+      <div class="circle">
+        <img src="assets/img/me5.jpg" alt="">
+      </div>
+      <strong>Frontend Developer</strong>
+      <a href="https://www.linkedin.com/in/reza-geshani-web"><i class="bi bi-linkedin"></i></a>
+      <a href="https://www.instagram.com/rezageshani_web"><i class="bi bi-instagram"></i></a>
+      <a href="https://github.com/RezaGeshaniWeb/"><i class="bi bi-github"></i></a>
+      <a href="mailto:rezageshaniweb@gmail.com"><i class="bi bi-envelope-at"></i></a>
+    </div>
+  </main>
+</body>
+
+</html>

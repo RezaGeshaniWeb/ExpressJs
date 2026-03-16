@@ -4,10 +4,12 @@ const path = require('path')
 
 const app = express()
 
-app.use("/static", express.static("public"))
+app.use(express.static("public"))
+app.set("view engine", "hbs")
+app.set("views", path.join(__dirname, "views"))
 
 app.get('/', (req, res, next) => {
-    res.render('index')
+    res.render('index', {})
 })
 
 app.use(NotFoundError)
