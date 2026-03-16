@@ -36,9 +36,9 @@
                         <a href="#">About us</a>
                         <i class="bi bi-chevron-down"></i>
                         <ul>
-                            <li><a href="#">About us</a></li>
-                            <li><a href="#">F.A.Q</a></li>
-                            <li><a href="#">Our team</a></li>
+                            {{#each links}}
+                            <li><a href="#">{{this.text}}</a></li>
+                            {{/each}}
                         </ul>
                     </li>
                     <li>

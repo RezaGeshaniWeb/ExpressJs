@@ -5,13 +5,19 @@ const hbs = require('hbs')
 
 const app = express()
 
+const links = [
+    { id: 1, text: 'About us' },
+    { id: 2, text: 'F.A.Q' },
+    { id: 3, text: 'Our team' }
+]
+
 app.use(express.static("public"))
 app.set("view engine", "hbs")
 app.set("views", path.join(__dirname, "views"))
 hbs.registerPartials(path.join(__dirname, "views/partials"))
 
 app.get('/', (req, res, next) => {
-    res.render('index', {})
+    res.render('index', { links, title: "We strive for excellence in everything we do." })
 })
 
 app.use(NotFoundError)
