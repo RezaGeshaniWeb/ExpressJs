@@ -113,11 +113,50 @@ app.put("/blogs/:id", async (req, res, next) => {
         const newBodyObject = omitEmpty(req.body)
         const blog = await BlogModel.findOne({ _id: id })
 
-        if(!blog) throw { status: 404, message: 'not found blog' }
+        if (!blog) throw { status: 404, message: 'not found blog' }
 
         Object.assign(blog, newBodyObject)
 
         await blog.save()
+
+        res.send(blog)
+    } catch (error) {
+        next(error)
+    }
+})
+
+app.patch("/blogs/:id", async (req, res, next) => {
+    try {
+        const { id } = req.params
+
+        if (!isValidObjectId(id)) throw { status: 400, message: 'your id is not valid id' }
+
+        const newBodyObject = omitEmpty(req.body)
+        const blog = await BlogModel.findOne({ _id: id })
+
+        if (!blog) throw { status: 404, message: 'not found blog' }
+
+        const result = await BlogModel.updateOne({ _id: id }, {
+            $set: newBodyObject
+        })
+
+        res.send(result)
+    } catch (error) {
+        next(error)
+    }
+})
+
+app.patch("/blogs/:id", async (req, res, next) => {
+    try {
+        const { id } = req.params
+
+        if (!isValidObjectId(id)) throw { status: 400, message: 'your id is not valid id' }
+
+        const newBodyObject = omitEmpty(req.body)
+
+        const blog = await BlogModel.findOneAndUpdate({ _id: id }, {
+            $set: newBodyObject
+        })
 
         res.send(blog)
     } catch (error) {
