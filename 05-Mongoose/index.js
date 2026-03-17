@@ -2,6 +2,7 @@ const express = require('express')
 const { NotFoundError, ErrorHandler } = require('./util/errorHandler')
 const { BlogModel } = require('./model/blog.model')
 require('./config/mongo.config')
+const omitEmpty = require("omit-empty")
 
 const app = express()
 
@@ -98,6 +99,27 @@ app.delete("/blogs/:id", async (req, res, next) => {
 
         const result = await BlogModel.deleteOne({ _id: id })
         res.send(result)
+    } catch (error) {
+        next(error)
+    }
+})
+
+app.put("/blogs/:id", async (req, res, next) => {
+    try {
+        const { id } = req.params
+
+        if (!isValidObjectId(id)) throw { status: 400, message: 'your id is not valid id' }
+
+        const newBodyObject = omitEmpty(req.body)
+        const blog = await BlogModel.findOne({ _id: id })
+
+        if(!blog) throw { status: 404, message: 'not found blog' }
+
+        Object.assign(blog, newBodyObject)
+
+        await blog.save()
+
+        res.send(blog)
     } catch (error) {
         next(error)
     }
