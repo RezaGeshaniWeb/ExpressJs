@@ -13,9 +13,13 @@ app.get("/", (req, res, next) => {
 })
 
 app.post("/create", async (req, res, next) => {
-    const { title, text } = req.body
-    const result = await BlogModel.create({ title, text })
-    res.send(result)
+    try {
+        const { title, text } = req.body
+        const result = await BlogModel.create({ title, text })
+        res.send(result)
+    } catch (error) {
+        next(error)
+    }
 })
 
 app.use(NotFoundError)
