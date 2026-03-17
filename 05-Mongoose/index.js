@@ -71,11 +71,33 @@ app.get("/blogs", async (req, res, next) => {
 app.get("/blogs/:id", async (req, res, next) => {
     try {
         const { id } = req.params
-        
+
         if (!isValidObjectId(id)) throw { status: 400, message: 'your id is not valid id' }
 
         const blog = await BlogModel.findOne({ _id: id })
         res.send(blog)
+    } catch (error) {
+        next(error)
+    }
+})
+
+app.delete("/blogs", async (req, res, next) => {
+    try {
+        const result = await BlogModel.deleteMany()
+        res.send(result)
+    } catch (error) {
+        next(error)
+    }
+})
+
+app.delete("/blogs/:id", async (req, res, next) => {
+    try {
+        const { id } = req.params
+
+        if (!isValidObjectId(id)) throw { status: 400, message: 'your id is not valid id' }
+
+        const result = await BlogModel.deleteOne({ _id: id })
+        res.send(result)
     } catch (error) {
         next(error)
     }
