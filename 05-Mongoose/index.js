@@ -33,6 +33,28 @@ app.post("/new", async (req, res, next) => {
     }
 })
 
+app.get("/insert-many", async (req, res, next) => {
+    try {
+        const newBlogs = await BlogModel.insertMany([
+            {
+                title: '1th title',
+                text: '1th text',
+            },
+            {
+                title: '2th title',
+                text: '2th text',
+            },
+            {
+                title: '3th title',
+                text: '3th text',
+            },
+        ])
+        res.send(newBlogs)
+    } catch (error) {
+        next(error)
+    }
+})
+
 app.use(NotFoundError)
 app.use(ErrorHandler)
 
