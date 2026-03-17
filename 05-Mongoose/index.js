@@ -68,6 +68,19 @@ app.get("/blogs", async (req, res, next) => {
     }
 })
 
+app.get("/blogs/:id", async (req, res, next) => {
+    try {
+        const { id } = req.params
+        
+        if (!isValidObjectId(id)) throw { status: 400, message: 'your id is not valid id' }
+
+        const blog = await BlogModel.findOne({ _id: id })
+        res.send(blog)
+    } catch (error) {
+        next(error)
+    }
+})
+
 app.use(NotFoundError)
 app.use(ErrorHandler)
 
