@@ -55,6 +55,19 @@ app.get("/insert-many", async (req, res, next) => {
     }
 })
 
+app.get("/blogs", async (req, res, next) => {
+    try {
+        const blogs = await BlogModel.find()
+        res.send({
+            statusCode: 200,
+            documentCount: blogs.length,
+            blogs
+        })
+    } catch (error) {
+        next(error)
+    }
+})
+
 app.use(NotFoundError)
 app.use(ErrorHandler)
 
