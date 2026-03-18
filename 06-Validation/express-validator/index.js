@@ -1,6 +1,7 @@
 const express = require('express')
 const { NotFoundError, ErrorHandler } = require('./util/errorHandler')
 const { loginValidator, registerValidator } = require('./validators/auth.validator')
+const { idValidator } = require('./validators/blog.validator')
 const { checkValidation } = require('./middlewares/validator')
 
 const app = express()
@@ -13,6 +14,10 @@ app.post("/login", loginValidator(), checkValidation, (req, res) => {
 })
 
 app.post("/register", registerValidator(), checkValidation, (req, res) => {
+    res.send(req.body)
+})
+
+app.get("/blogs/:id", idValidator(), checkValidation, (req, res) => {
     res.send(req.body)
 })
 
