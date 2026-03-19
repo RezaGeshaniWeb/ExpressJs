@@ -1,7 +1,7 @@
 const express = require('express')
 const { NotFoundError, ErrorHandler } = require('./util/errorHandler')
 const { validate } = require('express-validation')
-const { loginValidation } = require('./validators/auth.validator')
+const { loginValidation, registerValidation } = require('./validators/auth.validator')
 
 const app = express()
 
@@ -9,6 +9,10 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 app.post("/login", validate(loginValidation), (req, res) => {
+    res.send(req.body)
+})
+
+app.post("/register", validate(registerValidation), (req, res) => {
     res.send(req.body)
 })
 
