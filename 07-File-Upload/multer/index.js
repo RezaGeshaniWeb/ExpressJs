@@ -8,11 +8,22 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'))
 
-// app.post('/upload', uploadFile.single('image'), (req, res) => {
-//     res.send(req.file)
-// })
+app.post('/upload-single', uploadFile.single('image'), (req, res) => {
+    res.send(req.file)
+})
 
-app.post('/upload', uploadFile.array('image', 5), (req, res) => {
+app.post('/upload-array', uploadFile.array('image', 5), (req, res) => {
+    res.send(req.files)
+})
+
+app.post('/upload-fields', uploadFile.fields([
+    { name: 'image', maxCount: 1 },
+    { name: 'file', maxCount: 1 },
+]), (req, res) => {
+    res.send(req.files)
+})
+
+app.post('/upload-any', uploadFile.any(), (req, res) => {
     res.send(req.files)
 })
 
