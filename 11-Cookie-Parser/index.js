@@ -3,7 +3,7 @@ const cookieParser = require('cookie-parser')
 
 const app = express()
 
-app.use(cookieParser())
+app.use(cookieParser("21fdre4354gfgjhgutrtrjghdsewewrrrbfgdf"))
 
 app.get('/set-cookie', (req, res) => {
     const d = new Date()
@@ -13,6 +13,7 @@ app.get('/set-cookie', (req, res) => {
         httpOnly: true,
         signed: true,
         secure: true,
+        sameSite: 'none',  // lax , strict
     })
     res.cookie('nodejs', 'cookies')
     res.send('cookie have been saved successfully')
