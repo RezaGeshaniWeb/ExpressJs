@@ -1,20 +1,12 @@
 const { Router } = require('express')
+const BlogController = require('../controllers/blog.controller')
+
 const router = Router()
+const blogController = new BlogController()
 
-router.get('/', (req, res, next) => {
-    res.send('blogs')
-})
-
-router.post('/', (req, res, next) => {
-    res.send('created new blogs')
-})
-
-router.delete('/:id', (req, res, next) => {
-    res.send(`delete blogs with id # ${req.params.id}`)
-})
-
-router.patch('/:id', (req, res, next) => {
-    res.send(`update blogs with id # ${req.params.id}`)
-})
+router.get('/', blogController.getBlogs)
+router.post('/', blogController.createNewBlog)
+router.delete('/:id', blogController.deleteBlog)
+router.patch('/:id', blogController.updateBlog)
 
 module.exports = router
