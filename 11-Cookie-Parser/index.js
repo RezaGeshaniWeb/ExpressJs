@@ -24,4 +24,9 @@ app.get('/get-cookie', (req, res) => {
     res.send(cookies)
 })
 
+app.get('/delete-cookie', (req, res) => {
+    res.clearCookie('nodejs')
+    res.send('Cookie has been deleted successfully')
+})
+
 app.listen(3000, () => console.log('server run on port 3000'))
