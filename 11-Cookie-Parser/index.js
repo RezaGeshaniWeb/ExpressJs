@@ -6,7 +6,14 @@ const app = express()
 app.use(cookieParser())
 
 app.get('/set-cookie', (req, res) => {
-    res.cookie('cookieName', 'cookieValue')
+    const d = new Date()
+    res.cookie('cookieName', 'cookieValue', {
+        maxAge: 5000,
+        expires: new Date(d.getTime() + 5000),
+        httpOnly: true,
+        signed: true,
+        secure: true,
+    })
     res.cookie('nodejs', 'cookies')
     res.send('cookie have been saved successfully')
 })
