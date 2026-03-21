@@ -13,3 +13,10 @@ const deleteUser = (req, res, next) => {
 const updateUser = (req, res, next) => {
     res.send(`update user with id # ${req.params.id}`)
 }
+
+module.exports = {
+    getUsers,
+    createNewUser,
+    deleteUser,
+    updateUser
+}
