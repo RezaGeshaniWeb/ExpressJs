@@ -23,6 +23,24 @@ app.post('/upload-buffer', (req, res) => {
     res.send(req.files)
 })
 
+app.post('/upload-mv', async (req, res) => {
+    if (!req.files || Object.keys(req.files).length == 0) {
+        throw { status: 400, message: 'no file were uploaded' }
+    }
+    for (const key in req.files) {
+        const file = req.files[key]
+        const ext = path.extname(file.name)
+        const destPath = path.join('public', 'upload', Date.now() + ext)
+        const result = await new Promise((res, rej) => {
+            file.mv(destPath, err => {
+                if (err) return rej(err)
+                else res(true)
+            })
+        })
+    }
+    res.send("file uploaded")
+})
+
 app.use(NotFoundError)
 app.use(ErrorHandler)
 
