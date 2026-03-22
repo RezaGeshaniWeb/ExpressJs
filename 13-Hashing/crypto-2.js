@@ -6,4 +6,3 @@ const hash = crypto
     .digest("hex")
 
 console.log(hash)
-
