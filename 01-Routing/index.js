@@ -66,4 +66,4 @@ app.get('/cars/:id/:model/:carID', (req, res) => {
     res.send(req.params)
 })
 
-res.listen(3000, () => console.log('server run on port 3000'))
+app.listen(3000, () => console.log('server run on port 3000'))

@@ -33,4 +33,4 @@ app.get(/.*nodejs$/, (req, res) => {
     res.status(200).send("Accepted: " + req.url)
 })
 
-res.listen(3000, () => console.log('server run on port 3000'))
+app.listen(3000, () => console.log('server run on port 3000'))

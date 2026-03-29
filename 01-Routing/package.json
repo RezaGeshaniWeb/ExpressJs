@@ -1,15 +1,19 @@
 {
-  "name": "01-",
+  "name": "01-routing",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "match": "node matched-routes.js",
-    "query": "node query-string.js",
-    "http": "node HTTP-Methods.js"
+    "dev": "nodemon node index.js",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
 }
