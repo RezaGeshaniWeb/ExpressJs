@@ -9,7 +9,6 @@ app.use((req, res, next) => {
 app.use((req, res, next) => {
     console.log('log 2');
     next()
-    
 }, (req, res, next) => {
     console.log('log 3');
     next()
@@ -19,4 +18,4 @@ app.get('/', (req, res) => {
     res.send('main route')
 })
 
-res.listen(3000, () => console.log('server run on port 3000'))
+app.listen(3000, () => console.log('server run on port 3000'))
