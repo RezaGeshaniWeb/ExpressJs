@@ -27,4 +27,4 @@ app.use((err, req, res, next) => {
     })
 })
 
-res.listen(3000, () => console.log('server run on port 3000'))
+app.listen(3000, () => console.log('server run on port 3000'))
