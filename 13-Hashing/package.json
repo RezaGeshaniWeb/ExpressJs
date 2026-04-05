@@ -1,5 +1,5 @@
 {
-  "name": "09-favicon",
+  "name": "Hashing",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -8,5 +8,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "express": "^5.2.1",
+    "md5": "^2.3.0",
+    "sha1": "^1.1.1"
+  }
 }
