@@ -11,7 +11,7 @@ dotenv.config({
 })
 
 app.get('/', (req, res) => {
-    console.log(process.env.API_KEY)
+    console.log(process.env.SMS_API_KEY)
     res.send('environment variable')
 })
 

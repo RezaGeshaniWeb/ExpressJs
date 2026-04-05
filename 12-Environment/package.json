@@ -1,12 +1,20 @@
 {
-  "name": "09-favicon",
+  "name": "Environment Variable",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "nodemon": "nodemon node index.js",
     "start": "node index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "dotenv": "^17.4.0",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
 }
