@@ -7,7 +7,8 @@ function hashPassword(password) {
 }
 
 function verifyPassword(password, hash) {
-    bcrypt.compareSync(password, hash)
+    const res = bcrypt.compareSync(password, hash)
+    return res
 }
 
 const hash = hashPassword("123456")
