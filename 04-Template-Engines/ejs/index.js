@@ -1,6 +1,5 @@
 const express = require('express')
 const { NotFoundError, ErrorHandler } = require('./util/errorHandler')
-const path = require('path')
 
 const app = express()
 
@@ -10,7 +9,7 @@ const links = [
     { id: 3, text: 'Our team' }
 ]
 
-app.use("/static", express.static("public"))
+app.use(express.static("public"))
 
 app.set("view engine", "ejs")
 
