@@ -15,7 +15,7 @@ const registerValidator = () => [
         }
         return true
     }),
-    body('mobile').isMobileNumber(['fa-IR', 'en-US']).withMessage('mobile format is invalid'),
+    body('mobile').isMobilePhone(['fa-IR', 'en-US']).withMessage('mobile format is invalid'),
     body('email').isEmail().withMessage('email is invalid'),
     body('password').isLength({ min: 6, max: 20 }).withMessage('password is invalid'),
     body('confirmPassword').custom((value, { req }) => {
