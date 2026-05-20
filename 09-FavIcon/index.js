@@ -4,7 +4,7 @@ const serveFavIcon = require('serve-favicon')
 
 const app = express()
 
-app.use(serveFavIcon(path.join(__dirname, 'doc.png')))
+app.use(serveFavIcon(path.join(__dirname, 'public', 'doc.png')))
 
 app.get('/', (req, res, next) => {
     res.send('set favicon')
